@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/myscripts")
+    @Scripts.Render("~/bundles/kendo")
+    
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Styles.Render("~/bundles/kendo.css")
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">@Html.ActionLink(" ", "Index")</div>
+
+            <ul id="nav">
+                <li>@Html.ActionLink("Main", "Index")</li>
+                <li>@Html.ActionLink("Add a new material", "Create")</li>
+                <li>@Html.ActionLink("All Materials", "Index")</li>
+                <li>@Html.ActionLink("Dictionaries", "Index")</li>
+            </ul>
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿@model TextumReader.ProblemDomain.Material
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit","Material"))
+{
+    @Html.DropDownListFor(x => x.CategoryId, (SelectList)ViewData["Categories"]);
+    @Html.EditorForModel();
+    <input type="submit" value="Save" />
+}

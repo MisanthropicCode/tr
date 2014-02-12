@@ -1,0 +1,179 @@
+﻿@import url(reset.css);
+
+.word_split span:hover {
+    font-weight:bold;
+}
+
+#dialog {
+    font-size: 12px;
+}
+
+.lighted {
+    color: blue;
+    background-color:#ffffff;
+}
+
+body {
+    font: 16px Verdana;
+    background-color: #e6e0e0;
+}
+
+html,body {
+    height: 100%;
+}
+
+.text-box { width: 100%; }
+
+.multi-line { height: 150px; }
+
+TABLE.Grid TD, TABLE.Grid TH {
+    border-bottom: 1px dotted gray;
+    text-align: left;
+}
+
+TABLE.Grid TH {
+    font-weight: bold;
+}
+
+TABLE.Grid {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+FORM {
+    margin-bottom: 0px;
+}
+
+#wrapper {
+    width: 1024px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#header {
+    height: 150px;
+    border: 1px solid gray;
+    position: relative;
+}
+
+#logo {
+    width: 200px;
+    height: 100px;
+    border: 1px solid gray;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+}
+
+#logo a {
+    display: block;
+    height: 100px;
+    cursor: pointer;
+}
+
+#content {
+    border: 1px solid gray;
+    border-top: 0;
+    border-bottom: 0;
+    padding: 20px 20px;
+    text-align: justify;
+}
+
+#nav {
+    width: 600px;
+    height: 30px;
+    border: 1px dotted #808080;
+    position: absolute;
+    left: 350px;
+    top: 50px;
+    padding: 10px 0px 0 30px;
+}
+
+#nav li {
+    float: left;
+    margin-right: 25px;
+    text-transform: uppercase;
+}
+
+#nav li a {
+    text-decoration: none;
+    font: 16px Verdana;
+    color: #808080;
+}
+
+#nav li a.active {
+    color: #556bd4;
+}
+
+#nav li a:hover, #nav li a:hover {
+    color: #556bd4;
+}
+
+#footer {
+    height: 30px;
+    border: 1px solid gray;
+}
+
+.list {
+    list-style-type: disc;
+    padding: 0 20px;
+}
+
+.list li a {
+    text-decoration: none;
+}
+
+.item {
+    padding: 5px 0;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}

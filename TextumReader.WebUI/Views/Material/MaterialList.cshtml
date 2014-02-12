@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TextumReader.ProblemDomain.Material>
+
+@{
+    Layout = null;
+}
+
+@if (!Model.Any())
+{
+    <p>This category doesn't have any materials</p>
+}
+
+<table class="Grid">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.Category.Name)</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(m.Title, "Material", new { id = m.MaterialId }) </td>
+            <td>@m.Category.Name</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = m.MaterialId })
+                @Ajax.ActionLink("Delete", "Delete", new { id = m.MaterialId },
+                    new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "list" },
+                    new { @class = "delete-link" })
+            </td>
+        </tr>
+    }
+</table>

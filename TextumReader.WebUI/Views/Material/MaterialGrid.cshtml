@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TextumReader.ProblemDomain.Material>
+
+@{
+    Layout = null;
+}
+
+@if (!Model.Any())
+{
+    <p>В категории нет материалов</p>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#grid").kendoGrid({
+            dataBound: function(e) {
+                $(".delete-link").click(function(e) {
+                    e.preventDefault();
+                    if (confirm("Do you want to delete this material?")) {
+                        var grid = $("#grid").data("kendoGrid");
+                        var dataItem = grid.dataItem($(this).closest("tr"));
+                        grid.dataSource.remove(dataItem);
+                    }
+                    return false;
+                });
+            },
+            sortable: true,
+            scrollable: false,
+            pageable: true,
+            dataSource: {
+                pageSize: 5
+            }
+        });
+
+    });
+</script>
+
+<table id="grid" class="Grid">
+    <tr>
+        <th data-field="title">@Html.DisplayNameFor(model => model.Title)</th>
+        <th data-field="category">@Html.DisplayNameFor(model => model.Category.Name)</th>
+        <th data-field="actions"></th>
+    </tr>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(m.Title, "Material", new { id = m.MaterialId }) </td>
+            <td>@m.Category.Name</td>
+            <td>
+                @Html.ActionLink("Редактировать", "Edit", new { id = m.MaterialId })
+                @Ajax.ActionLink("Удалить", "Delete", new { id = m.MaterialId }, new AjaxOptions { HttpMethod = "POST" },
+             new { @class = "delete-link" })
+            </td>
+        </tr>
+    }
+</table>

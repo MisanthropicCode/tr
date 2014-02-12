@@ -1,0 +1,26 @@
+﻿@model TextumReader.ProblemDomain.Material
+
+@{
+    ViewBag.Title = "Material";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>@Model.Title</p>
+<p class="word_split">@MvcHtmlString.Create(Model.ForeignText)</p>
+
+<div id="dialog" title="Basic dialog">
+    <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+@section scripts
+{   
+    <script>
+        $(document).ready(function () {
+            hideDialogWhenUserClicksOutside("#dialog");
+
+            highlightWords("w");
+            submitFormAutomatically();
+            setDialog('@Url.Action("TranslateWord")', "#dialog", "w");
+        });
+    </script>
+}

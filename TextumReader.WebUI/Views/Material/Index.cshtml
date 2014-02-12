@@ -1,0 +1,42 @@
+﻿@model TextumReader.WebUI.Models.MaterialsListViewModel
+
+@{
+    ViewBag.Title = "MaterialList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "list"
+    };
+}
+
+<!-- A service message (about an error or smth) -->
+<div>
+    @if (TempData["message"] != null)
+    {
+        <div class="message">@TempData["message"]</div>
+    }
+</div>
+
+<!-- The list of categories -->
+<p>
+    @using (Ajax.BeginForm("Index", "Material", null, ajaxOpts, new { id = "catform" })) 
+    {
+        @Html.DropDownList("category", new SelectList(Model.Categories, (Model.CurrentCategory ?? "All")), "All")
+    }
+</p>
+
+<!-- The list of materials (updates through ajax as a category is changed by a user) -->
+<ul class="list" id="list">
+    @Html.Action("MaterialList")
+</ul>
+
+@section scripts
+{
+    <script>
+        $(function() {
+            submitFormAutomatically();
+            $("#category").kendoDropDownList();
+        });
+    </script>
+}
